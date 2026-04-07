@@ -28,7 +28,7 @@ const Expense = require("./models/Expense");
 app.post("/expenses", async (req, res) => {
   try {
     const expense = await Expense.create(req.body);
-    res.json(expense);
+    res.status(200).json({ msg: "Expense created successfully", data: expense });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -38,7 +38,8 @@ app.post("/expenses", async (req, res) => {
 app.get("/expenses", async (req, res) => {
   try {
     const expenses = await Expense.find();
-    res.json(expenses);
+    res.status(200).json({ msg: "Expenses Lists successfully", data: expenses });
+
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
