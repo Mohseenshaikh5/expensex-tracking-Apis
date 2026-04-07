@@ -13,6 +13,7 @@ app.get("/", (req, res) => {
   res.send("API Working ✅");
 });
 
+console.log("ENV TEST:", process.env.MONGO_URI);
 // MongoDB connect
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected ✅"))
